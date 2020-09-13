@@ -1,11 +1,25 @@
 
 getwd()
-df <- read.csv(file="Floating_Population_2008.csv",
+df <- read.csv(file="Floating_Population_2008_2.csv",
                header = T,
                fileEncoding = 'utf-8',
                # encoding="utf-8"
                )
 df
+attach(df)
 
-# Íµ¨Î≥Ñ, Ïó∞Î†πÎåÄÎ≥ÑÎ°ú groupby sum 60ÎåÄÏôÄ 70ÎåÄ Ïú†ÎèôÏù∏Íµ¨ Ìï©Í≥ÑÎ•º Íµ¨Ìïú ÏÖÄÏùÑ ÎßåÎì¨
-# ÎÖ∏Ïù∏Ïù∏Íµ¨ 60~70 top 10
+str(df)
+# ±∏∫∞, ø¨∑…¥Î∫∞∑Œ groupby sum 60¥ÎøÕ 70¥Î ¿Øµø¿Œ±∏ «’∞Ë∏¶ ±∏«— ºø¿ª ∏∏µÎ
+
+install.packages("dplyr")
+library(dplyr)
+
+
+df %>%
+  group_by(±∫±∏) %>%
+  summarise(count = n(), 
+            age_sum = sum(ø¨∑…¥Î.10ºº¥‹¿ß.),
+            time_sum = sum(Ω√∞£.1Ω√∞£¥‹¿ß.)) %>%
+  view()
+
+# ≥Î¿Œ¿Œ±∏ 60~70 top 10
